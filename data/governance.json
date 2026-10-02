@@ -1,0 +1,162 @@
+{
+  "generated": "2026-10-02",
+  "canonical_domain": "https://mielogos.org",
+  "current_instruments": [
+    {
+      "title": "Constitution and Bylaws",
+      "version": "v0.2",
+      "status": "ACTIVE",
+      "effective": "2026-10-02",
+      "path": "documents/governance/MIELOGOS_Constitution_v0.2_ACTIVE.docx",
+      "summary": "The current constitutional framework of Mielogos, including Genesis Stage governance, membership foundations, institutional continuity, and the constitutional separation of the Association and The Mielogos Prize.",
+      "sha256": "6417764840e4b3a39b2b3428828bc8f2b4b9924b26aa18812ce74596ca1a9c40"
+    },
+    {
+      "title": "Institutional Definition of Symbiotic Authorship",
+      "version": "v0.1.1",
+      "status": "ACTIVE",
+      "effective": "2026-10-02",
+      "path": "documents/governance/MIELOGOS_INSTITUTIONAL_DEFINITION_v0.1.1_ACTIVE.docx",
+      "summary": "The Association’s operational definition of Symbiotic Authorship, including the three jointly necessary elements and the distinction between textual and creative causal provenance.",
+      "sha256": "2c6df801709b988710d7017648542161d84c9a2cedea150670ac03a277a33d57"
+    },
+    {
+      "title": "Founding Principles",
+      "version": "v0.1.1",
+      "status": "ACTIVE",
+      "effective": "2026-10-02",
+      "path": "documents/governance/MIELOGOS_FOUNDING_PRINCIPLES_v0.1.1_ACTIVE.docx",
+      "summary": "Association-wide interpretive principles governing creative freedom, solidarity, decentralization, responsibility, privacy, and institutional restraint.",
+      "sha256": "1290421c1a3e4af3c1e8e58845b29c0fdaa7ecbaad3b1b64d925b541cc7ab0b8"
+    },
+    {
+      "title": "Membership Charter",
+      "version": "v0.2",
+      "status": "ACTIVE",
+      "effective": "2026-10-02",
+      "path": "documents/governance/MIELOGOS_MEMBERSHIP_CHARTER_v0.2_ACTIVE.docx",
+      "summary": "The active membership framework for Practitioner and Associate Members, including declaration-first membership and privacy-preserving public-identity link verification.",
+      "sha256": "5d366aa4a150be7374b898966796c567525fda35a3c3dc60c2361e137e23cd87"
+    },
+    {
+      "title": "Code of Conduct",
+      "version": "v0.1.1",
+      "status": "ACTIVE",
+      "effective": "2026-10-02",
+      "path": "documents/governance/MIELOGOS_CODE_OF_CONDUCT_v0.1.1_ACTIVE.docx",
+      "summary": "The Association’s conduct and institutional-process framework, including privacy, harassment, retaliation, conflicts, complaints, and proportionate response.",
+      "sha256": "b5dbe03d79caabd333788d71c01551f1b621eaad1b5f99b9871782a9792f7eba"
+    }
+  ],
+  "decision_history": [
+    {
+      "id": "AR-001",
+      "date": "2026-10-02",
+      "title": "Original constitutional adoption",
+      "summary": "Adopted Constitution and Bylaws v0.1 as the first active Constitution of Mielogos.",
+      "path": "documents/governance/records/MIELOGOS_AR001.docx",
+      "sha256": "8ad38a034abb7c352e67d612456bf97debf4b54fe5754078ee96b1edf75fe779"
+    },
+    {
+      "id": "AR-002",
+      "date": "2026-10-02",
+      "title": "Original membership-policy adoption",
+      "summary": "Adopted Membership Charter v0.1 as the Association’s initial active membership policy.",
+      "path": "documents/governance/records/MIELOGOS_AR002.docx",
+      "sha256": "6cc1f3c9b2a5f9e43e8521ec4a5f263fd01c0bb891a8f8d74f1eccb039f8768e"
+    },
+    {
+      "id": "AR-003",
+      "date": "2026-10-02",
+      "title": "Institutional Definition adopted",
+      "summary": "Adopted Institutional Definition of Symbiotic Authorship v0.1 as an active foundational instrument.",
+      "path": "documents/governance/records/MIELOGOS_AR003.docx",
+      "sha256": "3f9d737da3945e1ad9383d5b0d3e7fd41eb50bdc2a65c46394f15b1419800c6f"
+    },
+    {
+      "id": "AR-004",
+      "date": "2026-10-02",
+      "title": "Founding Principles adopted",
+      "summary": "Adopted Founding Principles v0.1 as an active foundational and interpretive instrument.",
+      "path": "documents/governance/records/MIELOGOS_AR004.docx",
+      "sha256": "e77235f1dd0cea975141fe09bba88cd9b75dff87b3636ff88f7b078309538279"
+    },
+    {
+      "id": "AR-005",
+      "date": "2026-10-02",
+      "title": "Code of Conduct adopted",
+      "summary": "Adopted Code of Conduct v0.1 as the Association-wide conduct policy.",
+      "path": "documents/governance/records/MIELOGOS_AR005.docx",
+      "sha256": "909ef29436d76393b52f6a4de1b7cb388e761827e3e17744159e719980dde0e1"
+    },
+    {
+      "id": "CA-001",
+      "date": "2026-10-02",
+      "title": "Association / Prize separation",
+      "summary": "Established Constitution v0.2 and clarified that Mielogos and The Mielogos Prize share lineage while remaining institutionally distinct.",
+      "path": "documents/governance/records/MIELOGOS_CA001.docx",
+      "sha256": "c9ad9b39505769bfa3a947db8631eaa215f25f683edba2a8cddb81c88f98d9bf"
+    },
+    {
+      "id": "PD-001",
+      "date": "2026-10-02",
+      "title": "Conforming revisions after CA-001",
+      "summary": "Conformed the Definition, Membership Charter, Founding Principles, and Code of Conduct to Constitution v0.2, producing v0.1.1 instruments without changing their underlying policy.",
+      "path": "documents/governance/records/MIELOGOS_PD001.docx",
+      "sha256": "d694150644f7260da400141747f07740a72da2c53b0ed10649799b80afad3e77"
+    },
+    {
+      "id": "PD-002",
+      "date": "2026-10-02",
+      "title": "Public-identity verification safeguard",
+      "summary": "Amended the Membership Charter to v0.2 to verify control of a claimed public identity without routine civil-identity collection.",
+      "path": "documents/governance/records/MIELOGOS_PD002.docx",
+      "sha256": "431a70d7cdb254e935344a416a1e8389ea951d4c7397a0bb5fe6c0674f4dcc45"
+    }
+  ],
+  "historical_archive": [
+    {
+      "title": "Constitution and Bylaws",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Constitution_v0.1_SUPERSEDED.docx",
+      "sha256": "6d7e5b660d8584efe508e4fb871b5532fc8992e81d1129b3594538c8b4dbfcf3"
+    },
+    {
+      "title": "Membership Charter",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Membership_Charter_v0.1_SUPERSEDED.docx",
+      "sha256": "574630bdba9fb3a208db7ff596185d1941f524442ffbd52f2fabf21e43b4af70"
+    },
+    {
+      "title": "Membership Charter",
+      "version": "v0.1.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Membership_Charter_v0.1.1_SUPERSEDED.docx",
+      "sha256": "6d1d323427c699e476ce32f2b5ab65b6dfd00466f70ea3f1fa1774873e4a7ada"
+    },
+    {
+      "title": "Institutional Definition of Symbiotic Authorship",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Institutional_Definition_v0.1_SUPERSEDED.docx",
+      "sha256": "ea9b7e74c7975a9fb0497cc95301fc026ed4d46f8c53cf7c140e22663319ee2f"
+    },
+    {
+      "title": "Founding Principles",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Founding_Principles_v0.1_SUPERSEDED.docx",
+      "sha256": "61ce0792f8dcc5c28f88f03290b34c071a51e32e0b797853d32cf0d067de9138"
+    },
+    {
+      "title": "Code of Conduct",
+      "version": "v0.1",
+      "status": "SUPERSEDED",
+      "path": "documents/governance/archive/MIELOGOS_Code_of_Conduct_v0.1_SUPERSEDED.docx",
+      "sha256": "68bbf4fefa345da647b75603d8ab5bae3b90ae6e26d13e42f82d731a8fa073b8"
+    }
+  ],
+  "note": "This public register excludes internal non-normative QA and stress-test materials."
+}

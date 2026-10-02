@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1",
+  "updated": "2026-10-03",
+  "items": [
+    {
+      "type": "foundational-paper",
+      "title": "The Symbiotic Author as an Institutional Category",
+      "subtitle": "Authorship, Creative Provenance, and Eligibility in Human–AI Literary Production",
+      "author": "Navi Musaget",
+      "year": 2026,
+      "role": "Foundational research underlying the institutional category adopted by MIELOGOS",
+      "institutional_status": "FOUNDATIONAL — not equivalent to an adopted governance instrument",
+      "related_internal_url": "/symbiotic-authorship/"
+    },
+    {
+      "type": "preprint",
+      "title": "Symbiotic Dialectics: Meaning Emergence in Human–Non-Human Interpretive Systems",
+      "author": "Navi Musaget",
+      "year": 2026,
+      "doi": "10.5281/zenodo.18187335",
+      "url": "https://doi.org/10.5281/zenodo.18187335",
+      "role": "Intellectual lineage",
+      "institutional_status": "Research lineage — not MIELOGOS doctrine"
+    }
+  ]
+}
