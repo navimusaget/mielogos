@@ -19,7 +19,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          ZIP="$(find . -maxdepth 1 -type f -name 'MIELOGOS_GitHub_Staging_v*.zip' | head -n 1)"
+          ZIP="$(find . -maxdepth 1 -type f -name 'MIELOGOS_GitHub_Staging_v*.zip' | sort | tail -n 1)"
 
           if [ -z "$ZIP" ]; then
             echo "MIELOGOS staging ZIP was not found."
@@ -28,6 +28,9 @@ jobs:
 
           unzip -o "$ZIP" -d .
           rm "$ZIP"
+
+          # Never let a staging bundle overwrite this workflow.
+          git restore --source=HEAD -- .github/workflows/bootstrap.yml
 
       - name: Commit extracted site
         shell: bash
@@ -40,6 +43,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nothing to commit."
           else
-            git commit -m "Import MIELOGOS site staging v0.7"
+            git commit -m "Import MIELOGOS site staging bundle"
             git push
           fi
