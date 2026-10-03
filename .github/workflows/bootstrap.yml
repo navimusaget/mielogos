@@ -19,7 +19,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          ZIP="$(find . -maxdepth 1 -type f -name 'MIELOGOS_GitHub_Staging_v*.zip' | sort | tail -n 1)"
+          ZIP="$(find . -maxdepth 1 -type f -name 'MIELOGOS_GitHub_*_v*.zip' | sort | tail -n 1)"
 
           if [ -z "$ZIP" ]; then
             echo "MIELOGOS staging ZIP was not found."
