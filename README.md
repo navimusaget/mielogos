@@ -1,4 +1,4 @@
-# MIELOGOS Site Shell v0.7
+# MIELOGOS Site Shell v0.8
 
 Local static-site shell for `mielogos.org`.
 
@@ -17,6 +17,14 @@ Local static-site shell for `mielogos.org`.
 
 ## No backend
 This package contains no account system, database, analytics, trackers, cookies, or membership submission logic.
+
+
+## v0.8
+- Mobile polish after first live GitHub Pages QA.
+- Reduced Home hero headline size and vertical spacing on small screens so the first action enters the initial viewport sooner.
+- Slightly tightened the Home lead and “You are not alone.” spacing without changing public copy.
+- Added a subtle shadow and viewport-safe scrolling to the open mobile navigation so it reads as a distinct layer over the page.
+- No changes to institutional text, information architecture, membership status, governance documents, or privacy model.
 
 ## v0.7
 - Prepared package for first GitHub Pages deployment.
