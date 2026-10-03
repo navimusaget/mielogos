@@ -1,4 +1,4 @@
-# MIELOGOS Site Shell v0.8
+# MIELOGOS Production Site v0.9
 
 Local static-site shell for `mielogos.org`.
 
@@ -45,3 +45,10 @@ This package contains no account system, database, analytics, trackers, cookies,
 - Added verified public DOI link for *Symbiotic Dialectics* (10.5281/zenodo.18187335) as intellectual lineage, explicitly not doctrine.
 - Added public content-status/editorial principles to distinguish papers, essays, cases, and practice reflections.
 - Added `/data/research.json` for a small machine-readable research register.
+
+## v0.9 production
+- Converted GitHub Pages project-subpath URLs to root-domain URLs.
+- Enabled search indexing for the public production site.
+- Added `CNAME` for `mielogos.org`.
+- Added production `robots.txt` and `sitemap.xml`.
+- No membership application backend has been activated.
