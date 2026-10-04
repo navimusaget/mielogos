@@ -1,54 +1,77 @@
-# MIELOGOS Production Site v0.9
+# MIELOGOS Production Site v1.0
 
-Local static-site shell for `mielogos.org`.
+Public website for `mielogos.org`.
 
-## State
-- Home: accepted visual direction carried into shell.
-- About: complete public institutional page covering purpose, Genesis Stage, international scope, FFRI-NM relationship, and Prize separation.
-- Symbiotic Authorship: complete internal content page.
-- Membership: complete public membership explainer based on Membership Charter v0.2; Join remains pre-opening.
-- Governance: five current ACTIVE instruments, public decision/amendment history, separate SUPERSEDED archive, and machine-readable governance register.
-- Research & Ideas: complete first public research/library page with foundational work, research lineage, future content types, and editorial-status principles.
-- Contact: complete public contact page using `contact@mielogos.org` as the single public correspondence channel.
-- Join remains pre-opening. Privacy now documents the actual public website and operational email-contact stack; the membership-specific notice will be finalized before applications open.
-- Join: pre-opening only; no form or backend.
-- Privacy: public-launch notice now reflects the current static-site and email-contact state, including Dynadot mailbox hosting and Google forwarding; membership-processing providers remain intentionally unspecified until selected.
-- Contact: `contact@mielogos.org` fixed as the public institutional address. `membership@mielogos.org` is reserved for possible activation when membership opens.
+## Current state — 4 October 2026
+- Home, About, Symbiotic Authorship, Membership, Research & Ideas, Governance, Contact, Privacy, and Join are public.
+- Public membership applications are **OPEN**.
+- The Join workflow is a custom Mielogos form backed by Google Apps Script and a private Google Sheets administrative queue.
+- Applications receive a server-generated `ML-APP-YYYY-NNNN` reference after successful receipt.
+- Application processing remains human-reviewed; the backend records and routes information but does not decide membership.
+- The form uses server-side validation, a honeypot field, spreadsheet-formula neutralization, a submission lock, and a per-submission cryptographic nonce for reliable cross-frame confirmation.
+- Applicant information is not stored in the public GitHub repository.
+- The public site intentionally uses no advertising trackers, behavioral analytics, visitor accounts, or public membership database.
+- `contact@mielogos.org` remains the public institutional contact.
+- Public Member Directory participation, if introduced, is separate and opt-in.
 
-## No backend
-This package contains no account system, database, analytics, trackers, cookies, or membership submission logic.
+## Site architecture
+- Hosting: GitHub Pages
+- Canonical domain: `https://mielogos.org`
+- Site type: plain static HTML/CSS/vanilla JS; no build step
+- Public form endpoint: Google Apps Script Web App
+- Private application store: Google Sheets / Drive
+- Administrative notifications: Google mail service
+- Domain and institutional email routing: Dynadot
 
+## Governance
+The public Governance page exposes:
+- five current ACTIVE normative instruments;
+- adoption / constitutional-amendment / policy-decision history;
+- a separate SUPERSEDED archive;
+- `/data/governance.json` as a machine-readable public register.
 
-## v0.8
-- Mobile polish after first live GitHub Pages QA.
-- Reduced Home hero headline size and vertical spacing on small screens so the first action enters the initial viewport sooner.
-- Slightly tightened the Home lead and “You are not alone.” spacing without changing public copy.
-- Added a subtle shadow and viewport-safe scrolling to the open mobile navigation so it reads as a distinct layer over the page.
-- No changes to institutional text, information architecture, membership status, governance documents, or privacy model.
+Internal QA materials and private membership-administration records are not published.
 
-## v0.7
-- Prepared package for first GitHub Pages deployment.
-- Added `.nojekyll` for a plain static Pages deployment with no build pipeline.
-- Replaced the Privacy placeholder with a public-launch privacy page grounded in the actual current setup: static site, Dynadot institutional mailbox, and Google forwarding.
-- Added `DEPLOYMENT.md` with the staged publication route.
-- Membership remains closed; no application form or applicant data workflow has been activated.
+## Privacy
+The public Privacy Notice reflects the live membership stack and the Association's data-minimization model:
+- public identity rather than routine civil-identity collection;
+- no ordinary collection of passports, home addresses, telephone numbers, dates of birth, private AI chats, prompt histories, unpublished manuscripts, detector reports, or full revision histories;
+- temporary verification evidence is discarded when no longer needed;
+- unsuccessful or abandoned application materials are ordinarily deleted after 90 days absent a concrete reason to retain them.
 
-## v0.6
-- Contact page completed around one human-readable institutional channel.
-- Fixed `contact@mielogos.org` as the public address and reserved a future dedicated membership address without publishing it as active.
-- Added clear pre-opening guidance: membership applications are not accepted by email while Join remains closed.
-- Kept Contact free of forms, accounts, phone numbers, physical-address theatre, analytics, and unnecessary data collection.
-
-## v0.5
-- Research & Ideas page completed.
-- Added a foundational-paper feature for *The Symbiotic Author as an Institutional Category*.
-- Added verified public DOI link for *Symbiotic Dialectics* (10.5281/zenodo.18187335) as intellectual lineage, explicitly not doctrine.
-- Added public content-status/editorial principles to distinguish papers, essays, cases, and practice reflections.
-- Added `/data/research.json` for a small machine-readable research register.
+## v1.0 membership launch
+- Activated public `/join/` membership application workflow.
+- Added Google Apps Script + private Google Sheets intake backend.
+- Added server-side acknowledgement validation and category / verification-route validation.
+- Added spreadsheet-formula neutralization and concurrency lock.
+- Added short administrator email notifications without duplicating applicant email or declaration.
+- Added cryptographic per-submission nonce confirmation for Apps Script sandboxed-frame responses.
+- Published live membership Privacy Notice and updated Home, Membership, Contact, and sitemap.
+- Completed end-to-end production test from the public `/join/` page.
+- Removed the private `/join/intake-test.html` test page after successful production verification.
+- Cleared launch-test application records from the private queue after verification.
 
 ## v0.9 production
 - Converted GitHub Pages project-subpath URLs to root-domain URLs.
 - Enabled search indexing for the public production site.
 - Added `CNAME` for `mielogos.org`.
 - Added production `robots.txt` and `sitemap.xml`.
-- No membership application backend has been activated.
+
+## v0.8
+- Mobile polish after first live GitHub Pages QA.
+- Reduced Home hero headline size and vertical spacing on small screens.
+- Tightened Home lead and “You are not alone.” spacing.
+- Added viewport-safe scrolling and visual separation to the mobile navigation.
+
+## v0.7
+- Prepared the first GitHub Pages deployment.
+- Added `.nojekyll`.
+- Added public-launch Privacy and deployment documentation.
+
+## v0.6
+- Completed Contact around one institutional channel.
+- Fixed `contact@mielogos.org` as the public address.
+
+## v0.5
+- Completed Research & Ideas.
+- Added foundational research references and `/data/research.json`.
