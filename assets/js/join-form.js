@@ -90,6 +90,30 @@
   let submitted = false;
   let resolved = false;
   let responseTimer = null;
+  let activeNonce = '';
+
+  function makeNonce() {
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+
+    return Array.from(bytes)
+      .map(byte => byte.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  function ensureNonceField() {
+    let field = form.querySelector('input[name="requestNonce"]');
+
+    if (!field) {
+      field = document.createElement('input');
+      field.type = 'hidden';
+      field.name = 'requestNonce';
+      form.appendChild(field);
+    }
+
+    activeNonce = makeNonce();
+    field.value = activeNonce;
+  }
 
   function showSuccess(applicationId) {
     if (resolved) return;
@@ -129,24 +153,6 @@
     });
   }
 
-  function isAllowedAppsScriptOrigin(origin) {
-    try {
-      const url = new URL(origin);
-
-      if (url.protocol !== 'https:') return false;
-
-      const host = url.hostname.toLowerCase();
-
-      return (
-        host === 'script.google.com' ||
-        host === 'script.googleusercontent.com' ||
-        host.endsWith('.googleusercontent.com')
-      );
-    } catch (_) {
-      return false;
-    }
-  }
-
   form.addEventListener('submit', event => {
     if (!form.checkValidity()) {
       event.preventDefault();
@@ -155,6 +161,8 @@
         'Please complete the required fields above.';
       return;
     }
+
+    ensureNonceField();
 
     submitted = true;
     resolved = false;
@@ -165,20 +173,21 @@
     errorPanel.hidden = true;
 
     clearTimeout(responseTimer);
-
     responseTimer = setTimeout(showError, 20000);
   });
 
   /*
-   * Apps Script may deliver HtmlService responses from a dynamically
-   * named googleusercontent.com host. We therefore validate the HTTPS
-   * hostname family, then require our exact response type and a real
-   * MIELOGOS application reference before displaying success.
+   * Google Apps Script HtmlService may surface the response from a
+   * sandboxed frame with event.origin == "null". Therefore origin alone
+   * is not a stable authentication signal here.
+   *
+   * Instead every submission receives a cryptographically random 128-bit
+   * nonce. The backend validates and echoes that nonce. The page accepts
+   * a response only while a submission is pending and only when the nonce
+   * exactly matches the active submission.
    */
   window.addEventListener('message', event => {
     if (!submitted || resolved) return;
-
-    if (!isAllowedAppsScriptOrigin(event.origin)) return;
 
     const data = event.data;
 
@@ -186,7 +195,9 @@
       !data ||
       typeof data !== 'object' ||
       data.type !== 'mielogos-membership-response' ||
-      typeof data.ok !== 'boolean'
+      typeof data.ok !== 'boolean' ||
+      typeof data.requestNonce !== 'string' ||
+      data.requestNonce !== activeNonce
     ) {
       return;
     }
