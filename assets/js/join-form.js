@@ -16,7 +16,6 @@
   const success = document.getElementById('submission-success');
   const errorPanel = document.getElementById('submission-error');
   const refLine = document.getElementById('application-reference');
-  const frame = document.getElementById('mielogos-submit-frame');
 
   const practitioner =
     'Identify at least one work, project, or defined creative practice and briefly describe the creative relation that makes Practitioner Membership appropriate. Describe enough for the relation to be intelligible: the human authorial locus, the bidirectionally conditioned creative relation, and the material causal effect on the developing work or practice. You may name the generative system or systems if you wish. Do not send private chats, prompt archives, unpublished manuscripts, or detector reports. A percentage of AI-generated wording is not required.';
@@ -88,14 +87,12 @@
   let submitted = false;
   let resolved = false;
   let responseTimer = null;
-  let loadFallbackTimer = null;
 
-  function showSuccess(applicationId = '') {
+  function showSuccess(applicationId) {
     if (resolved) return;
     resolved = true;
 
     clearTimeout(responseTimer);
-    clearTimeout(loadFallbackTimer);
 
     submit.disabled = false;
     status.textContent = '';
@@ -103,9 +100,8 @@
     errorPanel.hidden = true;
     success.hidden = false;
 
-    refLine.textContent = applicationId
-      ? 'Application reference: ' + applicationId
-      : '';
+    refLine.textContent =
+      'Application reference: ' + applicationId;
 
     success.scrollIntoView({
       behavior: 'smooth',
@@ -118,7 +114,6 @@
     resolved = true;
 
     clearTimeout(responseTimer);
-    clearTimeout(loadFallbackTimer);
 
     submit.disabled = false;
     status.textContent = '';
@@ -149,19 +144,24 @@
     errorPanel.hidden = true;
 
     clearTimeout(responseTimer);
-    clearTimeout(loadFallbackTimer);
 
     responseTimer = setTimeout(showError, 20000);
   });
 
   /*
-   * Apps Script HtmlService can insert an intermediate Google frame.
-   * Therefore event.source is not required to equal the outer iframe.
-   * We accept only our narrowly defined response object while a form
-   * submission is actually pending.
+   * Accept a success signal only from the deployed Google Apps Script
+   * response. A real application reference is required before the page
+   * can display "Application received".
    */
   window.addEventListener('message', event => {
     if (!submitted || resolved) return;
+
+    const allowedOrigins = new Set([
+      'https://script.googleusercontent.com',
+      'https://script.google.com'
+    ]);
+
+    if (!allowedOrigins.has(event.origin)) return;
 
     const data = event.data;
 
@@ -174,32 +174,19 @@
       return;
     }
 
-    if (data.ok) {
-      showSuccess(
-        typeof data.applicationId === 'string'
-          ? data.applicationId
-          : ''
-      );
-    } else {
+    if (data.ok === false) {
       showError();
+      return;
     }
-  });
 
-  /*
-   * Fallback for browsers where the Apps Script wrapper swallows the
-   * postMessage before it reaches the top page. A completed iframe load
-   * means the POST received an HTTP response. We wait briefly so a real
-   * success/error postMessage gets priority.
-   */
-  frame.addEventListener('load', () => {
-    if (!submitted || resolved) return;
+    if (
+      typeof data.applicationId !== 'string' ||
+      !/^ML-APP-\d{4}-\d{4,}$/.test(data.applicationId)
+    ) {
+      showError();
+      return;
+    }
 
-    clearTimeout(loadFallbackTimer);
-
-    loadFallbackTimer = setTimeout(() => {
-      if (!resolved) {
-        showSuccess('');
-      }
-    }, 1200);
+    showSuccess(data.applicationId);
   });
 })();
