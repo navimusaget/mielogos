@@ -1,0 +1,29 @@
+/* MIELOGOS membership application */
+.join-hero .join-promise{font:italic 22px/1.5 var(--serif);margin:26px 0 0;color:#383631}
+.test-banner{margin-top:28px;border:1px solid var(--ink);padding:14px 16px;border-radius:8px;font-size:14px;background:var(--soft)}
+.join-layout{display:grid;grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr);gap:78px;align-items:start}
+.join-side{position:sticky;top:118px}.join-side p{color:#45433f}.join-form-wrap{max-width:760px}
+.membership-form{display:grid;gap:0}.form-section{padding:0 0 46px;margin:0 0 46px;border-bottom:1px solid var(--rule)}
+.form-step{font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:24px}
+.form-field{margin:0 0 30px;padding:0;border:0}.form-field:last-child{margin-bottom:0}
+.form-field label,.form-field legend{display:block;font-weight:750;margin-bottom:9px;line-height:1.35}.form-field legend{font-size:17px}
+.form-field input[type="text"],.form-field input[type="email"],.form-field textarea,.form-field select{width:100%;border:1px solid #aaa49a;border-radius:8px;background:#fffdfa;color:var(--ink);padding:13px 14px;outline:none}
+.form-field textarea{resize:vertical;min-height:170px;line-height:1.5}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(18,18,16,.08)}
+.field-help,.form-intro,.verification-note,.pre-submit,.no-account{font-size:14px;color:var(--muted);margin:9px 0 0}
+.optional{font-weight:500;color:var(--muted);font-size:12px}.char-count{text-align:right;color:var(--muted);font-size:12px;margin-top:5px}
+.category-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}
+.choice-card{display:flex!important;gap:12px;border:1px solid var(--rule);border-radius:10px;padding:20px;cursor:pointer;background:rgba(255,255,255,.13);margin:0!important}
+.choice-card:has(input:checked){border-color:var(--ink);background:var(--soft)}.choice-card input{margin-top:4px;flex:0 0 auto}
+.choice-card strong{display:block;margin-bottom:6px}.choice-card small{display:block;color:#4c4944;font-size:13px;line-height:1.5;font-weight:400}
+.form-intro{font-size:15px;margin:0 0 25px;color:#3d3a35}.verification-note{border-left:2px solid var(--ink);padding-left:15px;margin-top:18px}
+.check-row{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;margin:0 0 18px;line-height:1.5;cursor:pointer}
+.check-row input{margin-top:5px;width:17px;height:17px}.check-row span{font-size:14px}
+.submit-area{padding-top:4px}.form-submit{margin-top:24px;min-width:260px}.form-submit[disabled]{opacity:.58;cursor:wait;transform:none}
+.form-status{min-height:26px;margin-top:14px;font-size:14px;color:var(--muted)}
+.honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+.submission-panel{border:1px solid var(--ink);border-radius:10px;padding:34px;background:rgba(255,255,255,.16)}
+.submission-panel h2{font-size:36px;margin-bottom:20px}.error-panel{border-color:#6d3737}
+.application-reference{font-weight:750;border-top:1px solid var(--rule);padding-top:18px;margin-top:22px}
+@media(max-width:960px){.join-layout{grid-template-columns:1fr;gap:46px}.join-side{position:static}}
+@media(max-width:620px){.category-options{grid-template-columns:1fr}.choice-card{padding:18px}.form-section{padding-bottom:36px;margin-bottom:36px}.form-submit{width:100%;min-width:0}.submission-panel{padding:26px}.submission-panel h2{font-size:30px}}
