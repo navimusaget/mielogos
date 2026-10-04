@@ -75,6 +75,9 @@
     if (!copy) {
       detailLabel.innerHTML =
         'Verification endpoint / method detail <span aria-hidden="true">*</span>';
+      detailHelp.textContent =
+        'Choose a verification route above, then provide the minimum public endpoint or route needed to use it. Do not enter passwords, recovery codes, or access credentials.';
+      detail.placeholder = '';
       return;
     }
 
@@ -126,6 +129,24 @@
     });
   }
 
+  function isAllowedAppsScriptOrigin(origin) {
+    try {
+      const url = new URL(origin);
+
+      if (url.protocol !== 'https:') return false;
+
+      const host = url.hostname.toLowerCase();
+
+      return (
+        host === 'script.google.com' ||
+        host === 'script.googleusercontent.com' ||
+        host.endsWith('.googleusercontent.com')
+      );
+    } catch (_) {
+      return false;
+    }
+  }
+
   form.addEventListener('submit', event => {
     if (!form.checkValidity()) {
       event.preventDefault();
@@ -149,19 +170,15 @@
   });
 
   /*
-   * Accept a success signal only from the deployed Google Apps Script
-   * response. A real application reference is required before the page
-   * can display "Application received".
+   * Apps Script may deliver HtmlService responses from a dynamically
+   * named googleusercontent.com host. We therefore validate the HTTPS
+   * hostname family, then require our exact response type and a real
+   * MIELOGOS application reference before displaying success.
    */
   window.addEventListener('message', event => {
     if (!submitted || resolved) return;
 
-    const allowedOrigins = new Set([
-      'https://script.googleusercontent.com',
-      'https://script.google.com'
-    ]);
-
-    if (!allowedOrigins.has(event.origin)) return;
+    if (!isAllowedAppsScriptOrigin(event.origin)) return;
 
     const data = event.data;
 
